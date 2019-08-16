@@ -64,6 +64,7 @@ def train(generator, discriminator, opt):
                 progress.progress(stage, epoch, i)
 
                 # discriminator
+                generator.zero_grad()
                 discriminator.zero_grad()
 
                 latent_dim = min(opt.base_channels * 2 ** opt.num_stages, 512)
@@ -87,6 +88,7 @@ def train(generator, discriminator, opt):
 
                 # generator
                 generator.zero_grad()
+                discriminator.zero_grad()
 
                 latent_dim = min(opt.base_channels * 2 ** opt.num_stages, 512)
                 z = torch.randn(opt.batch_size[stage], latent_dim, 1, 1, device=opt.device)
@@ -112,7 +114,7 @@ def main():
     parser.add_argument("--base_channels", type=int, default=16)
     parser.add_argument("--batch_size", type=list, default=[32, 32, 32, 32, 32, 16, 8, 4, 2])
     parser.add_argument("--data_root", type=str, default="./data")
-    parser.add_argument("--dataset", type=str, default="kmnist")
+    parser.add_argument("--dataset", type=str, default="mnist")
     parser.add_argument("--image_size", type=int, default=32)
     parser.add_argument("--image_channels", type=int, default=1)
     parser.add_argument("--device", type=str, default="cuda")
