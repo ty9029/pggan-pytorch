@@ -129,22 +129,5 @@ def main():
     torch.save(discriminator.state_dict(), "./weights/discriminator.pth")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

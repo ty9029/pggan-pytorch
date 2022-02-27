@@ -170,5 +170,3 @@ class Discriminator(nn.Module):
             ConvBlock(in_channels, in_channels, kernel_size, stride, padding, "lrelu", False),
             ConvBlock(in_channels, out_channels, kernel_size, stride, padding, "lrelu", False))
         return layers
-
-

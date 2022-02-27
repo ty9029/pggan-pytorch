@@ -27,5 +27,3 @@ def save_images(dir_name, images):
     images = np.array((images + 1) * 127.5, dtype="uint8")
     for i, image in enumerate(images):
         cv2.imwrite("{}/{}.jpg".format(dir_name, i), image)
-
-
